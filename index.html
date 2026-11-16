@@ -213,6 +213,38 @@ a{color:inherit;text-decoration:none}
 .gift-term .ext{display:block;margin-top:12px;padding-top:12px;border-top:1px solid #ffffff2a;font-size:16px;font-weight:700;color:var(--pink-l)}
 .gift-term .ext b{font-family:"Jost",sans-serif;font-size:24px;font-weight:500;color:#fff}
 
+.sec.gift{background:#fff5cf;color:var(--ink);overflow:hidden}
+.sec.gift>*:not(.confetti){position:relative;z-index:1}
+.confetti{position:absolute;inset:0;pointer-events:none;z-index:0}
+.cf{position:absolute;display:block;background:var(--c);transform:rotate(var(--r));animation:cfFloat var(--t) ease-in-out var(--d) infinite}
+.cf.sq{width:12px;height:12px;border-radius:2px}
+.cf.dot{width:12px;height:12px;border-radius:50%}
+.cf.bar{width:6px;height:18px;border-radius:3px}
+@keyframes cfFloat{0%,100%{transform:translateY(0) rotate(var(--r))}50%{transform:translateY(14px) rotate(calc(var(--r) + 40deg))}}
+.camp{text-align:center}
+.camp span{position:relative;display:inline-block;padding:12px 46px 13px;background:var(--pink);color:#fff;font-family:"Jost",sans-serif;font-weight:600;font-size:min(7.2vw,34px);letter-spacing:.1em;line-height:1;
+  clip-path:polygon(0 0,100% 0,calc(100% - 18px) 50%,100% 100%,0 100%,18px 50%)}
+.camp-ja{text-align:center;margin-top:10px;font-size:15px;font-weight:900;letter-spacing:.3em;color:var(--pink-d)}
+.gift .h2{margin-top:22px}
+.gift .gift-cond{color:#7a6a4f}
+.gbox .front{background:radial-gradient(circle,#ffffffaa 0 3px,transparent 3.5px) 0 0/22px 22px,#ff6fa8}
+.gbox .front::before,.gbox .lid::before{background:#fff}
+.gbox .lid{background:radial-gradient(circle,#ffffff88 0 3px,transparent 3.5px) 0 0/22px 22px,#ff4f9a}
+.gbox .bow::before,.gbox .bow::after{border-color:#fff;box-shadow:0 2px 0 #e8327c}
+.burst{position:absolute;left:50%;bottom:150px;width:0;height:0;z-index:0}
+.burst i{position:absolute;left:-3px;bottom:0;width:6px;height:26px;border-radius:3px;background:#ffc21a;transform-origin:50% 100%;opacity:0;transform:rotate(var(--a)) translateY(-60px) scaleY(.2)}
+.burst i:nth-child(1){--a:-70deg}.burst i:nth-child(2){--a:-50deg}.burst i:nth-child(3){--a:-30deg}.burst i:nth-child(4){--a:-10deg}
+.burst i:nth-child(5){--a:10deg}.burst i:nth-child(6){--a:30deg}.burst i:nth-child(7){--a:50deg}.burst i:nth-child(8){--a:70deg}
+.burst i:nth-child(even){background:#ff4f9a}
+.gift-stage.open .burst i{animation:burst 1.2s var(--ease) .8s both}
+@keyframes burst{0%{opacity:0;transform:rotate(var(--a)) translateY(-40px) scaleY(.2)}40%{opacity:1;transform:rotate(var(--a)) translateY(-150px) scaleY(1)}100%{opacity:0;transform:rotate(var(--a)) translateY(-190px) scaleY(.3)}}
+.gift-names{border:0;gap:12px}
+.gift-names div{background:#fff;border-radius:999px;border:2px dashed #ffb8d7}
+.gift-names div+div{border-left:2px dashed #ffb8d7}
+.gift .lead{color:#6b5a3e}
+.gift-term{background:var(--pink);border-radius:16px}
+.gift-term .lbl,.gift-term .ext{color:#fff}
+.gift-term .ext{border-top-color:#ffffff66}
 /* ---------- 03 お試し：対象商品 ---------- */
 .common{position:relative;margin-top:44px;padding:30px 16px 16px;border:2px solid var(--pink);border-radius:8px;background:#1a1019}
 .common::before{content:"";position:absolute;left:50%;top:-46px;width:2px;height:44px;margin-left:-1px;background:var(--pink)}
@@ -349,6 +381,7 @@ a{color:inherit;text-decoration:none}
   .ticket .stamp b{font-size:23px}
   .ticket .tag2{top:18px;right:14px;font-size:13px}
   .ticket .what{font-size:21px}
+  .camp span{white-space:nowrap;font-size:5.6vw;padding:11px 30px 12px;letter-spacing:.08em}
   .dash-sub{font-size:22px}
   .ticket .get{font-size:17px;padding:16px 12px}
   .point .l{font-size:24px}
@@ -369,7 +402,7 @@ a{color:inherit;text-decoration:none}
   .entry .x b{font-size:64px}
 }
 @media (prefers-reduced-motion:reduce){
-  .halo,.neon-sign,.neon-sign .flk,.mt{animation:none}
+  .halo,.neon-sign,.neon-sign .flk,.mt,.cf{animation:none}
   .tw{animation:none;opacity:.8}
   .gbox .lid,.gbox .pk{transition:none}
   .js .rv{opacity:1;transform:none;transition:none}
@@ -501,8 +534,29 @@ a{color:inherit;text-decoration:none}
   </section>
 
   <!-- ===== 02 2包プレゼント ===== -->
-  <section class="sec pink gift" id="gift">
-    <p class="no rv">PRESENT</p>
+  <section class="sec gift" id="gift">
+    <div class="confetti" aria-hidden="true">
+      <i class="cf dot" style="left:32%;top:77%;--c:#ff8a3d;--r:16deg;--d:4.6s;--t:6.9s"></i>
+      <i class="cf dot" style="left:76%;top:10%;--c:#ff8a3d;--r:1deg;--d:1.3s;--t:5.9s"></i>
+      <i class="cf dot" style="left:93%;top:62%;--c:#ff8a3d;--r:70deg;--d:2.0s;--t:8.4s"></i>
+      <i class="cf dot" style="left:31%;top:83%;--c:#ffb8d7;--r:66deg;--d:3.7s;--t:7.7s"></i>
+      <i class="cf dot" style="left:10%;top:22%;--c:#ff8a3d;--r:5deg;--d:3.9s;--t:8.3s"></i>
+      <i class="cf bar" style="left:36%;top:62%;--c:#ff8a3d;--r:49deg;--d:3.9s;--t:6.7s"></i>
+      <i class="cf dot" style="left:95%;top:75%;--c:#7fd6c2;--r:17deg;--d:0.5s;--t:5.5s"></i>
+      <i class="cf bar" style="left:29%;top:35%;--c:#c9a7ff;--r:55deg;--d:4.3s;--t:6.7s"></i>
+      <i class="cf bar" style="left:51%;top:75%;--c:#ffd23f;--r:68deg;--d:2.0s;--t:5.9s"></i>
+      <i class="cf bar" style="left:45%;top:89%;--c:#ff4f9a;--r:35deg;--d:3.4s;--t:5.7s"></i>
+      <i class="cf sq" style="left:43%;top:71%;--c:#ff8a3d;--r:72deg;--d:3.6s;--t:5.8s"></i>
+      <i class="cf sq" style="left:75%;top:36%;--c:#ffd23f;--r:15deg;--d:2.4s;--t:7.6s"></i>
+      <i class="cf dot" style="left:63%;top:13%;--c:#ffd23f;--r:8deg;--d:4.5s;--t:5.1s"></i>
+      <i class="cf bar" style="left:56%;top:55%;--c:#ff4f9a;--r:5deg;--d:3.1s;--t:5.2s"></i>
+      <i class="cf dot" style="left:93%;top:77%;--c:#ffd23f;--r:70deg;--d:2.5s;--t:9.0s"></i>
+      <i class="cf bar" style="left:41%;top:2%;--c:#ff4f9a;--r:13deg;--d:2.7s;--t:8.8s"></i>
+      <i class="cf sq" style="left:54%;top:39%;--c:#ff8a3d;--r:33deg;--d:3.4s;--t:8.9s"></i>
+      <i class="cf dot" style="left:45%;top:42%;--c:#ffd23f;--r:17deg;--d:1.9s;--t:8.5s"></i>
+    </div>
+    <p class="camp rv"><span>PRESENT CAMPAIGN</span></p>
+    <p class="camp-ja rv">プレゼントキャンペーン</p>
     <h2 class="h2 rv"><span class="ib">期間中<span class="num">2,000</span>円以上</span><span class="ib">ご購入の方に</span></h2>
     <p class="gift-cond rv">※継続定期購入分は対象外です</p>
     <p class="gift-big rv"><span class="k">酵素ドリンク</span><span class="ib"><span class="n">2</span><span class="u">包</span><span class="p">プレゼント</span></span></p>
@@ -511,6 +565,7 @@ a{color:inherit;text-decoration:none}
       <div class="gbox">
         <img class="pk mik" src="images/pk-mik.webp" alt="ポケット優光泉 ミカン">
         <img class="pk zak" src="images/pk-zak.webp" alt="ポケット優光泉 ザクローズ">
+        <span class="burst"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
         <div class="lid"><span class="bow"></span></div>
         <div class="front"></div>
       </div>
