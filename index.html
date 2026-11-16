@@ -22,7 +22,7 @@
   --pink:#ff4f9a; --pink-l:#ffb8d7; --pink-d:#c21862; --pink-soft:#ffd9e9; --pink-pale:#fff2f7;
   --neon:#ff4fa3; --neon-core:#ffe9f3;
   --g-pink:linear-gradient(100deg,#ff3d8b 0%,#ff8cc1 35%,#ffd2e6 50%,#ff7ab6 66%,#ff3d8b 100%);
-  --rail:#f9a8cb;
+  --rail:#000;
   --sub:#c7b6c0; --red:#e3122d; --red-on-dark:#ff3e56;
   --std:#8DAE2E; --mik:#EF9A12; --ume:#D95C69; --zak:#8C1B37; --wak:#7A7266;
   --col:600px; --pad:36px;
@@ -37,7 +37,7 @@ a{color:inherit;text-decoration:none}
 .num{font-family:"Jost",sans-serif;font-weight:500;letter-spacing:.01em}
 .pink-t{background:var(--g-pink);-webkit-background-clip:text;background-clip:text;color:transparent}
 
-.page{position:relative;z-index:3;width:100%;max-width:var(--col);margin:0 auto;background:var(--ink);box-shadow:0 30px 90px #5a0f3355;overflow:hidden}
+.page{position:relative;z-index:3;width:100%;max-width:var(--col);margin:0 auto;background:var(--ink);box-shadow:0 0 0 1px #ff4f9a40,0 0 80px #ff4f9a26;overflow:hidden}
 
 /* ---------- 動き ---------- */
 .js .rv{opacity:0;transform:translateY(22px);transition:opacity .9s ease,transform .9s var(--ease)}
@@ -72,15 +72,17 @@ a{color:inherit;text-decoration:none}
 .fv-ja{margin-top:22px;font-size:16px;font-weight:700;letter-spacing:.28em;color:var(--pink-l)}
 .fv-ja b{color:#fff;font-weight:700}
 /* くびれのネオン＋パウチ */
-.stage{position:relative;height:250px;margin:18px auto 0;max-width:460px}
-.fan img{position:absolute;bottom:-84px;left:50%;width:66px;margin-left:-33px;transform-origin:50% 92%;filter:drop-shadow(0 10px 18px #000a)}
-.fan img:nth-child(1){--r:-26deg;--x:-112px}
-.fan img:nth-child(2){--r:-13deg;--x:-56px}
-.fan img:nth-child(3){--r:0deg;--x:0px;z-index:2}
-.fan img:nth-child(4){--r:13deg;--x:56px}
-.fan img:nth-child(5){--r:26deg;--x:112px}
-.fan img{transform:translateX(var(--x)) rotate(var(--r));animation:fanIn 1.1s var(--spring) both;animation-delay:calc(var(--i) * 110ms + 900ms)}
-@keyframes fanIn{from{transform:translateX(0) translateY(170px) rotate(0)}to{transform:translateX(var(--x)) rotate(var(--r))}}
+.stage{position:relative;height:470px;margin:22px auto 0;max-width:480px}
+.floor{position:absolute;left:50%;bottom:-6px;width:360px;height:80px;margin-left:-180px;border-radius:50%;background:radial-gradient(closest-side,#ff4f9a59,transparent)}
+.bt{position:absolute;bottom:14px;width:106px;filter:drop-shadow(0 16px 24px #000d);z-index:2}
+.bt.std{left:calc(50% - 114px);animation:btIn 1s var(--spring) .9s both,floatY 5s ease-in-out 2s infinite}
+.bt.ume{left:calc(50% + 8px);bottom:34px;animation:btIn 1s var(--spring) 1.05s both,floatY 5.6s ease-in-out 2.4s infinite}
+@keyframes btIn{from{opacity:0;transform:translateY(90px)}to{opacity:1;transform:none}}
+@keyframes floatY{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+.pf{position:absolute;width:42px;transform:rotate(var(--r));filter:drop-shadow(0 8px 12px #000b);animation:pfIn .9s var(--spring) var(--dl) both,drift var(--t) ease-in-out calc(var(--dl) + .9s) infinite}
+.pf.sm{width:32px;opacity:.85}
+@keyframes pfIn{from{opacity:0;transform:rotate(var(--r)) scale(.3)}to{opacity:1;transform:rotate(var(--r))}}
+@keyframes drift{0%,100%{transform:rotate(var(--r)) translateY(0)}50%{transform:rotate(calc(var(--r) + 7deg)) translateY(-14px)}}
 .fv-date{position:relative;z-index:3;margin:0 calc(var(--pad) * -1);padding:20px 10px 22px;background:var(--ink);border-top:1px solid #ff4f9a66;display:flex;align-items:center;justify-content:center;gap:12px;white-space:nowrap}
 .fv-date .d{display:flex;align-items:baseline;gap:6px}
 .fv-date .n{font-family:"Jost",sans-serif;font-weight:500;font-size:min(8.4vw,40px);line-height:1;color:#fff}
@@ -88,12 +90,6 @@ a{color:inherit;text-decoration:none}
 .fv-date .t{font-family:"Jost",sans-serif;font-size:min(4.8vw,22px);font-weight:500;color:var(--pink-l)}
 .fv-date .arw{width:16px;height:16px;flex:none;border-top:2px solid var(--pink);border-right:2px solid var(--pink);transform:rotate(45deg);margin-left:-6px}
 
-/* ---------- 流れる帯 ---------- */
-.marq{overflow:hidden;background:var(--ink);border-top:1px solid #ff4f9a33;padding:6px 0 4px}
-.marq-in{display:flex;width:max-content;animation:marq 24s linear infinite}
-.marq span{font-family:"Jost",sans-serif;font-weight:500;font-size:46px;line-height:1.1;padding-right:34px;white-space:nowrap;color:transparent;-webkit-text-stroke:1px #ff6fae}
-.marq span b{color:var(--pink);-webkit-text-stroke:0;font-weight:500}
-@keyframes marq{to{transform:translateX(-50%)}}
 
 /* ---------- カウントダウン ---------- */
 .cd{background:var(--g-pink);color:var(--ink);text-align:center;padding:12px 12px 14px}
@@ -286,25 +282,25 @@ a{color:inherit;text-decoration:none}
 /* ---------- PC 両脇レール（小さめ） ---------- */
 .side{display:none}
 @media (min-width:1180px){
-  .side{display:flex;position:fixed;top:0;bottom:0;width:calc(50% - 300px);align-items:center;justify-content:center;padding:24px 22px;z-index:2;color:var(--ink)}
+  .side{display:flex;position:fixed;top:0;bottom:0;width:calc(50% - 300px);align-items:center;justify-content:center;padding:24px 22px;z-index:2;color:#fff}
   .side-l{left:0}.side-r{right:0}
   .side-in{width:100%;max-width:240px}
   .side .logo{display:inline-block;background:#fff;border-radius:6px;padding:5px 9px}
   .side .logo img{height:19px;width:auto}
-  .side-ttl{margin-top:16px;font-family:"Tilt Neon",sans-serif;font-size:42px;line-height:.95;color:var(--ink)}
+  .side-ttl{margin-top:16px;font-family:"Tilt Neon",sans-serif;font-size:42px;line-height:.95;color:var(--neon-core);text-shadow:0 0 2px #fff,0 0 8px var(--neon),0 0 22px #ff2f8f}
   .side-date{margin-top:10px;font-size:13px;font-weight:700;line-height:1.7}
   .side-date b{font-family:"Jost",sans-serif;font-size:18px;font-weight:500}
-  .guide{margin-top:18px;border-top:2px solid var(--ink)}
-  .guide a{display:flex;gap:10px;align-items:baseline;padding:7px 0;border-bottom:1px solid #0c0a0d33;font-size:13.5px;font-weight:700;transition:padding .2s}
+  .guide{margin-top:18px;border-top:1px solid #ff4f9a99}
+  .guide a{display:flex;gap:10px;align-items:baseline;padding:7px 0;border-bottom:1px solid #ffffff22;font-size:13.5px;font-weight:700;transition:padding .2s}
   .guide a:hover{padding-left:6px}
-  .guide a span{font-family:"Jost",sans-serif;font-size:12px;font-weight:500;color:var(--pink-d);min-width:18px}
-  .side-r .cdbox{background:var(--ink);color:#fff;text-align:center;padding:14px 8px 12px;border-radius:6px}
+  .guide a span{font-family:"Jost",sans-serif;font-size:12px;font-weight:500;color:var(--pink);min-width:18px}
+  .side-r .cdbox{background:#140d14;border:1px solid #ff4f9a80;color:#fff;text-align:center;padding:14px 8px 12px;border-radius:6px}
   .side-r .cdbox .cd-l{color:var(--pink-l);font-size:12px}
   .side-r .cdbox .cd-n{gap:2px}
   .side-r .cdbox .cd-n b{font-size:26px;min-width:0;color:#fff}
   .side-r .cdbox .cd-n small{font-size:10px;margin-right:4px;white-space:nowrap}
-  .side-gift{display:grid;grid-template-columns:auto 1fr;gap:12px;align-items:center;margin-top:12px;padding:12px 14px;border:2px solid var(--ink);border-radius:6px;transition:background .2s}
-  .side-gift:hover{background:#fff6}
+  .side-gift{display:grid;grid-template-columns:auto 1fr;gap:12px;align-items:center;margin-top:12px;padding:12px 14px;border:1px solid #ff4f9a80;border-radius:6px;transition:background .2s}
+  .side-gift:hover{background:#ff4f9a1a}
   .side-gift .pks{display:flex}
   .side-gift .pks img{width:24px}
   .side-gift .pks img:first-child{transform:rotate(-8deg)}
@@ -322,10 +318,14 @@ a{color:inherit;text-decoration:none}
   .h2{font-size:27px}
   .lead{font-size:16px}
   .sec{padding:60px var(--pad) 64px}
-  .stage{height:220px}
-    .fan img{width:58px;margin-left:-29px;bottom:-78px}
-  .fan img:nth-child(1){--x:-100px}.fan img:nth-child(2){--x:-50px}.fan img:nth-child(4){--x:50px}.fan img:nth-child(5){--x:100px}
-  .ticket{padding:18px 14px 14px}
+  .stage{height:390px}
+  .floor{width:280px;margin-left:-140px}
+  .bt{width:86px}
+  .bt.std{left:calc(50% - 92px)}
+  .bt.ume{left:calc(50% + 6px)}
+  .pf{width:34px}
+  .pf.sm{width:26px}
+        .ticket{padding:18px 14px 14px}
   .ticket .big{gap:6px}
   .ticket .pct{font-size:36vw}
   .ticket .off{font-size:11.2vw}
@@ -352,7 +352,7 @@ a{color:inherit;text-decoration:none}
   .entry .x b{font-size:64px}
 }
 @media (prefers-reduced-motion:reduce){
-  .marq-in,.fan img,.neon-sign,.neon-sign .flk{animation:none}
+  .bt.std,.bt.ume,.pf,.neon-sign,.neon-sign .flk{animation:none}
   .gbox .lid,.gbox .pk{transition:none}
   .js .rv{opacity:1;transform:none;transition:none}
 }
@@ -410,13 +410,15 @@ a{color:inherit;text-decoration:none}
     <p class="fv-ja">酵素ドリンク<b> 優光泉</b></p>
 
     <div class="stage" aria-hidden="true">
-      <div class="fan">
-        <img src="images/pk-wak.webp" alt="" style="--i:4">
-        <img src="images/pk-zak.webp" alt="" style="--i:2">
-        <img src="images/pk-std.webp" alt="" style="--i:0">
-        <img src="images/pk-mik.webp" alt="" style="--i:1">
-        <img src="images/pk-ume.webp" alt="" style="--i:3">
-      </div>
+      <span class="floor"></span>
+      <img class="pf" src="images/pk-mik.webp" alt="" style="left:6%;top:6%;--r:-18deg;--t:6.2s;--dl:1.3s">
+      <img class="pf" src="images/pk-zak.webp" alt="" style="left:15%;top:52%;--r:12deg;--t:7s;--dl:1.5s">
+      <img class="pf" src="images/pk-wak.webp" alt="" style="right:9%;top:2%;--r:16deg;--t:6.6s;--dl:1.4s">
+      <img class="pf" src="images/pk-std.webp" alt="" style="right:18%;top:50%;--r:-10deg;--t:7.4s;--dl:1.6s">
+      <img class="pf sm" src="images/pk-ume.webp" alt="" style="left:-1%;top:66%;--r:24deg;--t:5.8s;--dl:1.7s">
+      <img class="pf sm" src="images/pk-mik.webp" alt="" style="right:-1%;top:34%;--r:-26deg;--t:6.8s;--dl:1.8s">
+      <img class="bt std" src="images/bt-std.webp" alt="">
+      <img class="bt ume" src="images/bt-ume.webp" alt="">
     </div>
 
     <div class="fv-date">
@@ -426,10 +428,6 @@ a{color:inherit;text-decoration:none}
     </div>
   </section>
 
-  <div class="marq" aria-hidden="true"><div class="marq-in">
-    <span>BLACK FRIDAY <b>YUUKOUSEN</b></span><span>BLACK FRIDAY <b>YUUKOUSEN</b></span><span>BLACK FRIDAY <b>YUUKOUSEN</b></span>
-    <span>BLACK FRIDAY <b>YUUKOUSEN</b></span><span>BLACK FRIDAY <b>YUUKOUSEN</b></span><span>BLACK FRIDAY <b>YUUKOUSEN</b></span>
-  </div></div>
 
   <div class="cd">
     <p class="cd-l" data-cd-label>ブラックフライデー開始まで</p>
