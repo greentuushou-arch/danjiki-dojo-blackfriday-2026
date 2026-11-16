@@ -146,6 +146,8 @@ a{color:inherit;text-decoration:none}
 .ticket .get{display:flex;align-items:center;justify-content:center;gap:14px;margin-top:18px;padding:18px 16px;background:var(--g-pink);color:var(--ink);border-radius:999px;font-size:19px;font-weight:900;letter-spacing:.08em;box-shadow:0 6px 0 var(--pink-d);transition:transform .15s,box-shadow .15s}
 .ticket .get::after{content:"";width:8px;height:8px;border-top:2px solid currentColor;border-right:2px solid currentColor;transform:rotate(45deg)}
 .ticket:hover .get{transform:translateY(3px);box-shadow:0 3px 0 var(--pink-d)}
+.ticket[data-coupon10][href="#"] .get{font-size:0}
+.ticket[data-coupon10][href="#"] .get::before{content:"クーポン準備中";font-size:17px}
 .ticket.is-over{opacity:.45;pointer-events:none}
 .ticket.is-over .get{font-size:0;background:#444;box-shadow:none}
 .ticket.is-over .get::before{content:"このクーポンの配布は終了しました";font-size:15px}
@@ -308,6 +310,51 @@ a{color:inherit;text-decoration:none}
 .others .opt .nm small{display:block;font-size:13px;font-weight:500;color:var(--sub)}
 .others .opt .pr{color:var(--red-on-dark)}
 
+/* ---------- 売れ筋 ---------- */
+.best{margin-top:30px}
+.best-h{text-align:center;line-height:1.3}
+.best-h span{display:block;font-size:15px;font-weight:700;color:var(--pink-l);letter-spacing:.14em}
+.best-h b{display:block;font-size:24px;font-weight:900}
+.best-row{margin-top:14px;display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+.bi{position:relative;display:flex;flex-direction:column;background:#fff;color:var(--ink);border-radius:6px;overflow:hidden;transition:transform .2s var(--ease)}
+.bi:hover{transform:translateY(-3px)}
+.bi img{width:100%;aspect-ratio:1;object-fit:cover}
+.bi .rk{position:absolute;left:0;top:0;min-width:26px;height:26px;padding:0 6px;display:flex;align-items:center;justify-content:center;background:var(--ink);color:#fff;font-family:"Jost",sans-serif;font-weight:600;font-size:14px;border-bottom-right-radius:6px}
+.bi:nth-child(1) .rk{background:var(--pink)}
+.bi:nth-child(2) .rk,.bi:nth-child(3) .rk{background:var(--pink-d)}
+.bi .nm{padding:6px 7px 0;font-size:11.5px;font-weight:700;line-height:1.35;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;min-height:3.1em}
+.bi .pr{margin-top:auto;padding:2px 7px 7px;color:var(--red);font-family:"Jost",sans-serif;font-weight:600;font-size:18px;line-height:1.2}
+.bi .pr small{font-family:"Noto Sans JP",sans-serif;font-size:10px;font-weight:700;margin-left:1px}
+.best-more{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;margin-top:14px;padding:15px;border:2px solid var(--pink);border-radius:999px;background:transparent;color:#fff;font:inherit;font-size:17px;font-weight:900;letter-spacing:.08em;cursor:pointer;transition:background .2s}
+.best-more small{font-size:13px;font-weight:700;color:var(--pink-l)}
+.best-more:hover{background:#ff4f9a22}
+.best-dlg{border:0;padding:0;width:min(760px,calc(100% - 24px));max-height:calc(100% - 40px);margin:auto;border-radius:12px;background:var(--ink);color:#fff;box-shadow:0 0 0 1px #ff4f9a66,0 20px 80px #000}
+.best-dlg::backdrop{background:#000c}
+.dlg-in{padding:0 18px 20px}
+.dlg-top{position:sticky;top:0;z-index:2;display:flex;align-items:center;justify-content:space-between;padding:16px 0 12px;background:var(--ink);border-bottom:1px solid #ff4f9a55}
+.dlg-h{font-size:20px;font-weight:900;line-height:1.4}
+.dlg-h small{display:block;font-size:12px;font-weight:700;color:var(--pink-l)}
+.dlg-x{position:relative;flex:none;width:44px;height:44px;border:0;border-radius:50%;background:var(--pink);cursor:pointer}
+.dlg-x::before,.dlg-x::after{content:"";position:absolute;left:12px;top:21px;width:20px;height:2px;background:#fff;transform:rotate(45deg)}
+.dlg-x::after{transform:rotate(-45deg)}
+.dlg-grid{margin-top:14px;display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.dlg-grid .bi .nm{font-size:12.5px}
+.dlg-grid .bi .pr{font-size:20px}
+/* ---------- 読みもの ---------- */
+.read-main{display:block;margin-top:26px;background:#fff;border-radius:10px;overflow:hidden;box-shadow:0 10px 30px #c2186222;transition:transform .2s var(--ease)}
+.read-main:hover,.read:hover,.read-drink:hover{transform:translateY(-3px)}
+.read-main img{width:100%;aspect-ratio:16/9;object-fit:cover}
+.rm-bd{display:block;padding:16px 18px 18px;text-align:center}
+.rm-bd em{display:inline-block;font-style:normal;font-size:13px;font-weight:700;color:#fff;background:var(--pink);padding:2px 12px;border-radius:999px}
+.rm-bd b{display:block;margin-top:8px;font-size:20px;font-weight:900;line-height:1.45;color:var(--ink)}
+.rm-bd .go{display:inline-flex;align-items:center;gap:10px;margin-top:12px;padding:12px 30px;background:var(--ink);color:#fff;border-radius:999px;font-size:16px;font-weight:700}
+.rm-bd .go::after{content:"";width:7px;height:7px;border-top:2px solid currentColor;border-right:2px solid currentColor;transform:rotate(45deg)}
+.read-grid{margin-top:14px;display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.read,.read-drink{display:block;background:#fff;border-radius:8px;overflow:hidden;color:var(--ink);transition:transform .2s var(--ease)}
+.read img,.read-drink img{width:100%;aspect-ratio:16/9;object-fit:cover}
+.read b{display:block;padding:10px 12px 12px;font-size:14.5px;font-weight:700;line-height:1.5}
+.read-drink{margin-top:12px;display:grid;grid-template-columns:44% 1fr;align-items:center}
+.read-drink b{padding:10px 14px;font-size:15.5px;font-weight:700;line-height:1.5}
 /* ---------- 06 エントリー ---------- */
 .entry{text-align:center;justify-items:center;display:grid;grid-template-columns:auto auto;justify-content:center;gap:10px 14px;align-items:center;padding:26px 24px;border:1px solid #ff4f9a66;border-radius:6px}
 .entry .t{font-size:20px;font-weight:700;line-height:1.5}
@@ -381,6 +428,11 @@ a{color:inherit;text-decoration:none}
   .ticket .stamp b{font-size:23px}
   .ticket .tag2{top:18px;right:14px;font-size:13px}
   .ticket .what{font-size:21px}
+  .best-row{grid-template-columns:repeat(3,1fr)}
+  .best-row .bi:nth-child(n+7){display:none}
+  .dlg-grid{grid-template-columns:repeat(2,1fr)}
+  .read b{font-size:13.5px}
+  .rm-bd b{font-size:18px}
   .camp span{white-space:nowrap;font-size:5.6vw;padding:11px 30px 12px;letter-spacing:.08em}
   .dash-sub{font-size:22px}
   .ticket .get{font-size:17px;padding:16px 12px}
@@ -423,7 +475,8 @@ a{color:inherit;text-decoration:none}
       <a href="#trial"><span>03</span>お試し商品クーポン</a>
       <a href="#box"><span>04</span>飲みくらべBOX</a>
       <a href="#flavor"><span>05</span>味から選ぶ</a>
-      <a href="#entry"><span>06</span>エントリー</a>
+      <a href="#reads"><span>06</span>読みもの</a>
+      <a href="#entry"><span>07</span>エントリー</a>
     </nav>
   </div>
 </aside>
@@ -512,26 +565,57 @@ a{color:inherit;text-decoration:none}
 
   <!-- ===== 01 スタートダッシュ ===== -->
   <section class="sec dash" id="dash">
-    <div class="dash-head rv">
-      <p class="dash-tag">スタートダッシュ</p>
-      <p class="dash-until"><span class="n pink-t">11.20</span><span class="w">（金）</span><span class="t">23:59</span><span class="m">まで</span></p>
-      <p class="dash-sub"><span class="ib">先着<b>200</b>名様・</span><span class="ib">なくなり次第終了</span></p>
+    <!-- 11/19 20:00〜11/20 23:59：先着15%OFF。この時刻を過ぎると自動で10%OFFに切り替わる（確認用：?phase=10 で切替後を表示） -->
+    <div class="phase" data-phase="15">
+      <div class="dash-head rv">
+        <p class="dash-tag">スタートダッシュ</p>
+        <p class="dash-until"><span class="n pink-t">11.20</span><span class="w">（金）</span><span class="t">23:59</span><span class="m">まで</span></p>
+        <p class="dash-sub"><span class="ib">先着<b>200</b>名様・</span><span class="ib">なくなり次第終了</span></p>
+      </div>
+      <a class="ticket rv" href="https://coupon.rakuten.co.jp/getCoupon?getkey=QjBRWS0ySVNTLUhEOEotWEpUSg--&amp;rt=&amp;rd=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2F%25E9%2585%25B5%25E7%25B4%25A0%25E3%2583%2589%25E3%2583%25AA%25E3%2583%25B3%25E3%2582%25AF%2F%3Fnitem%3D%25E3%2583%259D%25E3%2583%2583%25E3%2582%25AD%25E3%2583%25AA%26sid%3D235929" target="_blank" rel="noopener">
+        <p class="what">店内全品</p>
+        <p class="big"><span class="pct pink-t">15</span><span class="off pink-t">%OFF<small>COUPON</small></span></p>
+        <span class="stamp">先着<b>200</b>名様</span>
+        <span class="get">15%OFFクーポンを獲得する</span>
+      </a>
+    </div>
+    <div class="phase" data-phase="10" hidden>
+      <div class="dash-head rv">
+        <p class="dash-tag">スタートダッシュ終了後も</p>
+        <p class="dash-until"><span class="n pink-t">11.25</span><span class="w">（水）</span><span class="t">1:59</span><span class="m">まで</span></p>
+        <p class="dash-sub"><span class="ib">まだ間に合う！</span><span class="ib">店内全品<b>10</b>%OFF</span></p>
+      </div>
+      <!-- COUPON10_URL：10%OFFクーポンのURLが届いたら下の href="#" を差し替える -->
+      <a class="ticket rv" href="#" data-coupon10 target="_blank" rel="noopener">
+        <p class="what">店内全品</p>
+        <p class="big"><span class="pct pink-t">10</span><span class="off pink-t">%OFF<small>COUPON</small></span></p>
+        <span class="get">10%OFFクーポンを獲得する</span>
+      </a>
     </div>
 
-    <a class="ticket rv" data-expire="2026-11-20T23:59:59+09:00" href="https://coupon.rakuten.co.jp/getCoupon?getkey=QjBRWS0ySVNTLUhEOEotWEpUSg--&amp;rt=&amp;rd=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2F%25E9%2585%25B5%25E7%25B4%25A0%25E3%2583%2589%25E3%2583%25AA%25E3%2583%25B3%25E3%2582%25AF%2F%3Fnitem%3D%25E3%2583%259D%25E3%2583%2583%25E3%2582%25AD%25E3%2583%25AA%26sid%3D235929" target="_blank" rel="noopener">
-      <p class="what">対象商品 全品</p>
-      <p class="big"><span class="pct pink-t">15</span><span class="off pink-t">%OFF<small>COUPON</small></span></p>
-      <span class="stamp">先着<b>200</b>名様</span>
-      <span class="get">15%OFFクーポンを獲得する</span>
-    </a>
-
-    <p class="amp rv">&amp;</p>
-    <div class="point rv">
-      <p class="l">ポイント<br>最大</p>
-      <p class="r"><b class="pink-t">46</b><span>倍</span></p>
+    <div class="best rv">
+      <p class="best-h"><span>クーポンで買える</span><b>売れ筋ランキング</b></p>
+      <div class="best-row" data-best-row></div>
+      <button type="button" class="best-more" data-best-open>もっと見る<small>（全<span data-best-count></span>商品）</small></button>
     </div>
-    <p class="point-note rv">スタートダッシュ期間中／倍率は各キャンペーンの条件によります</p>
+
+    <div class="phase" data-phase="15">
+      <p class="amp rv">&amp;</p>
+      <div class="point rv">
+        <p class="l">ポイント<br>最大</p>
+        <p class="r"><b class="pink-t">46</b><span>倍</span></p>
+      </div>
+      <p class="point-note rv">スタートダッシュ期間中／倍率は各キャンペーンの条件によります</p>
+    </div>
   </section>
+
+  <dialog class="best-dlg" data-best-dlg aria-label="売れ筋ランキング 全商品">
+    <div class="dlg-in">
+      <div class="dlg-top"><p class="dlg-h">売れ筋ランキング<small data-dlg-sub></small></p><button type="button" class="dlg-x" data-best-close aria-label="閉じる"></button></div>
+      <div class="dlg-grid" data-best-all></div>
+      <p class="note">※表示価格は税込の通常価格です。定期購入はクーポンの対象外です。対象外の商品がある場合がありますので、各商品ページでご確認ください。</p>
+    </div>
+  </dialog>
 
   <!-- ===== 02 2包プレゼント ===== -->
   <section class="sec gift" id="gift">
@@ -723,6 +807,24 @@ a{color:inherit;text-decoration:none}
     <p class="note">※表示価格は税込の通常価格です。価格・在庫は変わることがあります。最新の情報は各商品ページでご確認ください。</p>
   </section>
 
+  <!-- ===== 読みもの ===== -->
+  <section class="sec pale reads" id="reads">
+    <p class="no rv">TOPICS</p>
+    <h2 class="h2 rv"><span class="ib">はじめる前に</span><span class="ib">読んでおきたい</span></h2>
+    <a class="read-main rv" href="https://www.rakuten.co.jp/danjiki-dojo/contents/fastinng/sindan/yuukousen/" target="_blank" rel="noopener">
+      <img src="images/topics/sindan.jpg" alt="ファスティング診断" width="900" height="506" loading="lazy">
+      <span class="rm-bd"><em>まずはここから</em><b><span class="ib">あなたに合ったファスティングは？</span><span class="ib">ファスティング診断</span></b><span class="go">診断してみる</span></span>
+    </a>
+    <div class="read-grid">
+      <a class="read rv" href="https://www.rakuten.co.jp/danjiki-dojo/contents/danziki/16zikan/yuukousen/" target="_blank" rel="noopener"><img src="images/topics/16h.jpg" alt="" width="900" height="506" loading="lazy"><b>16時間断食で無理なくダイエット</b></a>
+      <a class="read rv" href="https://www.rakuten.co.jp/danjiki-dojo/contents/danziki/24zikan/yuukousen/" target="_blank" rel="noopener"><img src="images/topics/24h.jpg" alt="" width="900" height="506" loading="lazy"><b>24時間断食（1日1食）の正しいやり方</b></a>
+      <a class="read rv" href="https://www.rakuten.co.jp/danjiki-dojo/contents/danziki/1niti/yuukousen/" target="_blank" rel="noopener"><img src="images/topics/1day.jpg" alt="" width="900" height="506" loading="lazy"><b>1日断食 準備食から回復食まで</b></a>
+      <a class="read rv" href="https://www.rakuten.co.jp/danjiki-dojo/contents/danziki/3nitikan/yuukousen/" target="_blank" rel="noopener"><img src="images/topics/3days.jpg" alt="" width="900" height="506" loading="lazy"><b>3日間断食のやり方を全て解説</b></a>
+    </div>
+    <a class="read-drink rv" href="https://www.rakuten.co.jp/danjiki-dojo/contents/fasting-drink/" target="_blank" rel="noopener"><img src="images/topics/drink.jpg" alt="" width="900" height="506" loading="lazy"><b>ファスティング中に飲んでいい飲み物は？</b></a>
+    <a class="btn dark rv" href="https://www.rakuten.co.jp/danjiki-dojo/contents/topicslist/" target="_blank" rel="noopener">読みもの一覧へ</a>
+  </section>
+
   <!-- ===== 06 エントリー ===== -->
   <section class="sec" id="entry" style="padding-top:20px">
     <div class="entry rv">
@@ -759,15 +861,40 @@ a{color:inherit;text-decoration:none}
     gift.classList.add('open');
   }
 
+
+  /* 15%→10%OFF 自動切替（11/20 23:59 を過ぎたら10%） */
+  var SWITCH=new Date('2026-11-20T23:59:59+09:00').getTime();
+  var forced=(location.search.match(/phase=(10|15)/)||[])[1];
+  function setPhase(){
+    var ph=forced||(Date.now()>SWITCH?'10':'15');
+    document.querySelectorAll('[data-phase]').forEach(function(el){el.hidden=el.getAttribute('data-phase')!==ph;});
+    var sub=document.querySelector('[data-dlg-sub]');
+    if(sub) sub.textContent=ph==='10'?'店内全品10%OFFクーポン対象':'店内全品15%OFFクーポン対象（先着200名様）';
+  }
+  setPhase(); setInterval(setPhase,30000);
+  var c10=document.querySelector('[data-coupon10]');
+  if(c10) c10.addEventListener('click',function(e){if(c10.getAttribute('href')==='#')e.preventDefault();});
+
+  /* 売れ筋（楽天のショップ内検索・標準順） */
+  var BEST=[{"c":"0002","n":"ポケット優光泉 スタンダード/梅 15包","p":"2,916"},{"c":"0090","n":"優光泉 ボトル600ml スタンダード/梅","p":"4,700"},{"c":"0001","n":"優光泉 レギュラーボトル1200ml","p":"9,180"},{"c":"0058","n":"ポケット優光泉 ザクローズ 15包","p":"2,916"},{"c":"1000","n":"ポケット優光泉 6包","p":"1,380"},{"c":"0003","n":"3日間断食セット","p":"10,360"},{"c":"0064","n":"ザクローズ 600ml×2本","p":"7,992"},{"c":"7001","n":"優光泉 ミカン 600ml","p":"4,700"},{"c":"0004","n":"1日断食セット","p":"4,930"},{"c":"0046","n":"ポケット優光泉 濃縮和漢発酵 15包","p":"2,916"},{"c":"0063","n":"ザクローズ 600ml","p":"4,700"},{"c":"0028","n":"優光泉 プレミアム 720ml","p":"9,180"},{"c":"0050","n":"ポケット優光泉 スタンダード/梅 60包","p":"9,180"},{"c":"4001","n":"酵素ゼリー ミカン味 6包","p":"1,280"},{"c":"0040","n":"薬用酵素入浴剤 バスクレンチーム26","p":"2,530"},{"c":"0060","n":"ポケット優光泉 ザクローズ 60包","p":"9,180"},{"c":"0039_kitty","n":"優光泉×ハローキティ コップセット","p":"9,558"},{"c":"10000027","n":"3日間断食 回復食セット","p":"1,600"},{"c":"0037_2","n":"濃縮和漢発酵 600ml×2本","p":"9,180"},{"c":"0037_1","n":"濃縮和漢発酵 600ml","p":"4,700"},{"c":"0047","n":"ポケット優光泉 濃縮和漢発酵 60包","p":"9,180"},{"c":"5557","n":"くわタブレット 150粒","p":"1,620"},{"c":"0073","n":"オーサワ 有機玄米小豆ごはん","p":"320"},{"c":"7004","n":"ポケット優光泉 ミカン 60包","p":"9,180"},{"c":"0038_kitty","n":"ハローキティ 目盛付きコップ","p":"880"},{"c":"0030","n":"オーサワ 有機玄米あずき粥","p":"280"},{"c":"10000026","n":"オーサワ 有機立科みそ汁","p":"230"},{"c":"0075","n":"オーサワ 赤だしみそ汁","p":"230"},{"c":"10000025","n":"オーサワ 雑穀入り発芽玄米ごはん","p":"378"},{"c":"000069","n":"オーサワ 有機黒ごま塩","p":"300"},{"c":"0072","n":"オーサワ 有機玄米粥","p":"260"},{"c":"0071","n":"オーサワ 充実雑穀","p":"734"},{"c":"0065","n":"おやすみ着圧オープントゥ","p":"2,000"},{"c":"0087","n":"オーサワ 国産十五穀米","p":"1,650"},{"c":"0074","n":"オーサワ 十五穀シリアル","p":"710"},{"c":"7003","n":"ポケット優光泉 ミカン 15包","p":"2,916"},{"c":"4002","n":"酵素ゼリー ミカン味 15包","p":"2,200"},{"c":"7002","n":"優光泉 ミカン 600ml×2本","p":"9,180"}];
+  function card(it,i){return '<a class="bi" href="https://item.rakuten.co.jp/danjiki-dojo/'+it.c+'/" target="_blank" rel="noopener"><span class="rk">'+(i+1)+'</span><img src="images/rank/'+it.c+'.jpg" alt="" width="300" height="300" loading="lazy"><span class="nm">'+it.n+'</span><span class="pr">'+it.p+'<small>円</small></span></a>';}
+  document.querySelector('[data-best-row]').innerHTML=BEST.slice(0,8).map(card).join('');
+  document.querySelector('[data-best-count]').textContent=BEST.length;
+  var dlg=document.querySelector('[data-best-dlg]'), all=document.querySelector('[data-best-all]');
+  document.querySelector('[data-best-open]').addEventListener('click',function(){
+    if(!all.innerHTML) all.innerHTML=BEST.map(card).join('');
+    if(dlg.showModal) dlg.showModal(); else dlg.setAttribute('open','');
+  });
+  document.querySelector('[data-best-close]').addEventListener('click',function(){if(dlg.close)dlg.close();else dlg.removeAttribute('open');});
+  dlg.addEventListener('click',function(e){if(e.target===dlg&&dlg.close)dlg.close();});
   /* カウントダウン（開始前→開催中→プレゼント延長→終了） */
   var START=new Date('2026-11-19T20:00:00+09:00').getTime();
   var END=new Date('2026-11-25T01:59:59+09:00').getTime();
   var GIFT_END=new Date('2026-11-25T23:59:59+09:00').getTime();
-  var labels=document.querySelectorAll('[data-cd-label]'), boxes=document.querySelectorAll('[data-cd]'), exp=document.querySelectorAll('[data-expire]');
+  var labels=document.querySelectorAll('[data-cd-label]'), boxes=document.querySelectorAll('[data-cd]');
   function pad(n){return (n<10?'0':'')+n;}
   function tick(){
     var now=Date.now(), target, label;
-    exp.forEach(function(t){if(now>new Date(t.dataset.expire).getTime())t.classList.add('is-over');});
     if(now<START){target=START;label='ブラックフライデー開始まで';}
     else if(now<END){target=END;label='ブラックフライデー終了まで';}
     else if(now<GIFT_END){target=GIFT_END;label='2包プレゼント終了まで';}
