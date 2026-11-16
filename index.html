@@ -47,6 +47,10 @@ a{color:inherit;text-decoration:none}
 .top{display:flex;align-items:center;justify-content:space-between;padding:14px var(--pad);border-bottom:1px solid #ff4f9a40}
 .top .logo{display:block;background:#fff;border-radius:6px;padding:6px 10px}
 .top .logo img{height:24px;width:auto}
+.top{gap:12px}
+.top .to-present{margin-left:auto;display:inline-flex;flex-direction:column;align-items:center;line-height:1.1;padding:7px 18px 8px;border-radius:999px;background:var(--g-pink);color:var(--ink);font-family:"Jost","Noto Sans JP",sans-serif;font-weight:600;font-size:15px;letter-spacing:.06em;box-shadow:0 3px 0 var(--pink-d);transition:transform .15s,box-shadow .15s;white-space:nowrap}
+.top .to-present small{font-family:"Noto Sans JP",sans-serif;font-size:10px;font-weight:900;letter-spacing:.1em}
+.top .to-present:hover{transform:translateY(2px);box-shadow:0 1px 0 var(--pink-d)}
 .top .to-shop{font-size:14px;font-weight:700;color:var(--pink-l)}
 .top .to-shop::after{content:"";display:inline-block;width:6px;height:6px;margin-left:8px;border-top:2px solid currentColor;border-right:2px solid currentColor;transform:translateY(-1px) rotate(45deg)}
 
@@ -369,7 +373,9 @@ a{color:inherit;text-decoration:none}
 .fine{padding:32px var(--pad) 36px;border-top:1px solid #ffffff1c}
 .fine li{list-style:none;font-size:14px;line-height:1.8;color:var(--sub);padding-left:1em;text-indent:-1em}
 .foot{padding:28px var(--pad) 44px;text-align:center;border-top:1px solid #ff4f9a40}
-.foot a{display:inline-block;background:#fff;border-radius:6px;padding:8px 14px}
+.foot .foot-present{display:flex;flex-direction:column;align-items:center;gap:2px;width:100%;margin-bottom:22px;padding:16px;border-radius:999px;background:var(--g-pink);color:var(--ink);font-family:"Jost","Noto Sans JP",sans-serif;font-weight:600;font-size:20px;letter-spacing:.08em;line-height:1.2}
+.foot .foot-present small{font-family:"Noto Sans JP",sans-serif;font-size:12.5px;font-weight:900;letter-spacing:.04em}
+.foot>a:not(.foot-present){display:inline-block;background:#fff;border-radius:6px;padding:8px 14px}
 .foot img{height:28px;width:auto}
 .foot p{margin-top:12px;font-size:12px;color:#8a7883}
 
@@ -428,6 +434,8 @@ a{color:inherit;text-decoration:none}
   .ticket .stamp b{font-size:23px}
   .ticket .tag2{top:18px;right:14px;font-size:13px}
   .ticket .what{font-size:21px}
+  .top .to-shop{display:none}
+  .top .to-present{font-size:13px;padding:6px 14px 7px}
   .best-row{grid-template-columns:repeat(3,1fr)}
   .best-row .bi:nth-child(n+7){display:none}
   .dlg-grid{grid-template-columns:repeat(2,1fr)}
@@ -503,6 +511,7 @@ a{color:inherit;text-decoration:none}
 
   <header class="top">
     <a class="logo" href="https://www.rakuten.co.jp/danjiki-dojo/" target="_blank" rel="noopener"><img src="images/logo-wide.webp" alt="断食道場ショップ" width="540" height="90"></a>
+    <a class="to-present" href="#gift"><small>2包もらえる</small>PRESENT CAMPAIGN</a>
     <a class="to-shop" href="https://www.rakuten.co.jp/danjiki-dojo/" target="_blank" rel="noopener">ショップトップ</a>
   </header>
 
@@ -741,7 +750,7 @@ a{color:inherit;text-decoration:none}
   <section class="sec flavor" id="flavor">
     <p class="no rv">CHOOSE BY TASTE</p>
     <h2 class="h2 rv"><span class="ib">味から選ぶ</span><span class="ib">対象商品</span></h2>
-    <p class="lead rv">ボトルは<b style="color:#fff">スタートダッシュ15%OFF</b>、15包は<b style="color:#fff">お試し商品クーポン</b>の対象です。</p>
+    <p class="lead rv">ボトルも15包も、<b style="color:#fff">ブラックフライデーのクーポン</b>の対象です。</p>
 
     <div class="flv">
       <article class="flv-row std rv">
@@ -750,7 +759,7 @@ a{color:inherit;text-decoration:none}
           <h3><small>STANDARD / UME</small>スタンダード・梅</h3>
           <p class="cp">いちばん人気の基本の味と、並んで人気の梅。最初の1本に。</p>
           <div class="opts">
-            <a class="opt" href="https://item.rakuten.co.jp/danjiki-dojo/0090/" target="_blank" rel="noopener"><span class="nm">ボトル 600ml<em>15%OFF対象</em></span><span class="pr">4,700<small>円</small></span></a>
+            <a class="opt" href="https://item.rakuten.co.jp/danjiki-dojo/0090/" target="_blank" rel="noopener"><span class="nm">ボトル 600ml<em>クーポン対象</em></span><span class="pr">4,700<small>円</small></span></a>
             <a class="opt" href="https://item.rakuten.co.jp/danjiki-dojo/0002/" target="_blank" rel="noopener"><span class="nm">ポケット 15包<em class="tr">お試しクーポン対象</em></span><span class="pr">2,916<small>円</small></span></a>
           </div>
         </div>
@@ -762,8 +771,8 @@ a{color:inherit;text-decoration:none}
           <h3><small>MIKAN</small>ミカン</h3>
           <p class="cp">やさしい甘さで続けやすい、新しい味。</p>
           <div class="opts">
-            <a class="opt" href="https://item.rakuten.co.jp/danjiki-dojo/7001/" target="_blank" rel="noopener"><span class="nm">ボトル 600ml<em>15%OFF対象</em></span><span class="pr">4,700<small>円</small></span></a>
-            <a class="opt" href="https://item.rakuten.co.jp/danjiki-dojo/7002/" target="_blank" rel="noopener"><span class="nm">ボトル 600ml×2本<em>15%OFF対象</em></span><span class="pr">9,180<small>円</small></span></a>
+            <a class="opt" href="https://item.rakuten.co.jp/danjiki-dojo/7001/" target="_blank" rel="noopener"><span class="nm">ボトル 600ml<em>クーポン対象</em></span><span class="pr">4,700<small>円</small></span></a>
+            <a class="opt" href="https://item.rakuten.co.jp/danjiki-dojo/7002/" target="_blank" rel="noopener"><span class="nm">ボトル 600ml×2本<em>クーポン対象</em></span><span class="pr">9,180<small>円</small></span></a>
             <a class="opt" href="https://item.rakuten.co.jp/danjiki-dojo/7003/" target="_blank" rel="noopener"><span class="nm">ポケット 15包<em class="tr">お試しクーポン対象</em></span><span class="pr">2,916<small>円</small></span></a>
           </div>
         </div>
@@ -775,8 +784,8 @@ a{color:inherit;text-decoration:none}
           <h3><small>ZAKUROSE</small>ザクローズ</h3>
           <p class="cp">ザクロが香る、果物の味わいの一杯。</p>
           <div class="opts">
-            <a class="opt" href="https://item.rakuten.co.jp/danjiki-dojo/0063/" target="_blank" rel="noopener"><span class="nm">ボトル 600ml<em>15%OFF対象</em></span><span class="pr">4,700<small>円</small></span></a>
-            <a class="opt" href="https://item.rakuten.co.jp/danjiki-dojo/0064/" target="_blank" rel="noopener"><span class="nm">ボトル 600ml×2本<em>15%OFF対象</em></span><span class="pr">7,992<small>円</small></span></a>
+            <a class="opt" href="https://item.rakuten.co.jp/danjiki-dojo/0063/" target="_blank" rel="noopener"><span class="nm">ボトル 600ml<em>クーポン対象</em></span><span class="pr">4,700<small>円</small></span></a>
+            <a class="opt" href="https://item.rakuten.co.jp/danjiki-dojo/0064/" target="_blank" rel="noopener"><span class="nm">ボトル 600ml×2本<em>クーポン対象</em></span><span class="pr">7,992<small>円</small></span></a>
             <a class="opt" href="https://item.rakuten.co.jp/danjiki-dojo/0058/" target="_blank" rel="noopener"><span class="nm">ポケット 15包<em class="tr">お試しクーポン対象</em></span><span class="pr">2,916<small>円</small></span></a>
           </div>
         </div>
@@ -788,8 +797,8 @@ a{color:inherit;text-decoration:none}
           <h3><small>WAKAN</small>濃縮和漢発酵</h3>
           <p class="cp">「まずそう」の常識をくつがえす、和漢の味。</p>
           <div class="opts">
-            <a class="opt" href="https://item.rakuten.co.jp/danjiki-dojo/0037_1/" target="_blank" rel="noopener"><span class="nm">ボトル 600ml<em>15%OFF対象</em></span><span class="pr">4,700<small>円</small></span></a>
-            <a class="opt" href="https://item.rakuten.co.jp/danjiki-dojo/0037_2/" target="_blank" rel="noopener"><span class="nm">ボトル 600ml×2本<em>15%OFF対象</em></span><span class="pr">9,180<small>円</small></span></a>
+            <a class="opt" href="https://item.rakuten.co.jp/danjiki-dojo/0037_1/" target="_blank" rel="noopener"><span class="nm">ボトル 600ml<em>クーポン対象</em></span><span class="pr">4,700<small>円</small></span></a>
+            <a class="opt" href="https://item.rakuten.co.jp/danjiki-dojo/0037_2/" target="_blank" rel="noopener"><span class="nm">ボトル 600ml×2本<em>クーポン対象</em></span><span class="pr">9,180<small>円</small></span></a>
             <a class="opt" href="https://item.rakuten.co.jp/danjiki-dojo/0046/" target="_blank" rel="noopener"><span class="nm">ポケット 15包<em class="tr">お試しクーポン対象</em></span><span class="pr">2,916<small>円</small></span></a>
           </div>
         </div>
@@ -840,6 +849,7 @@ a{color:inherit;text-decoration:none}
   </ul>
 
   <footer class="foot">
+    <a class="foot-present" href="#gift">PRESENT CAMPAIGN<small>2,000円以上で酵素ドリンク2包プレゼント</small></a>
     <a href="https://www.rakuten.co.jp/danjiki-dojo/" target="_blank" rel="noopener"><img src="images/logo-wide.webp" alt="断食道場ショップ トップへ" width="540" height="90"></a>
     <p>酵素ドリンク 優光泉｜断食道場SHOP</p>
   </footer>
