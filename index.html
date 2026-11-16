@@ -72,13 +72,7 @@ a{color:inherit;text-decoration:none}
 .fv-ja{margin-top:22px;font-size:16px;font-weight:700;letter-spacing:.28em;color:var(--pink-l)}
 .fv-ja b{color:#fff;font-weight:700}
 /* くびれのネオン＋パウチ */
-.stage{position:relative;height:420px;margin:6px auto 0;max-width:460px}
-.body-neon{position:absolute;left:50%;top:0;width:300px;margin-left:-150px;height:auto;overflow:visible}
-.body-neon .tube{fill:none;stroke:#ff6fb2;stroke-width:4;stroke-linecap:round}
-.body-neon .core{fill:none;stroke:#ffe1ef;stroke-width:1.4;stroke-linecap:round}
-.body-neon .tape{fill:none;stroke:#fff;stroke-width:3;stroke-linecap:round}
-.body-neon .tick{stroke:#fff;stroke-width:2}
-.body-neon{animation:neonOn 1.6s steps(1) .6s both}
+.stage{position:relative;height:250px;margin:18px auto 0;max-width:460px}
 .fan img{position:absolute;bottom:-84px;left:50%;width:66px;margin-left:-33px;transform-origin:50% 92%;filter:drop-shadow(0 10px 18px #000a)}
 .fan img:nth-child(1){--r:-26deg;--x:-112px}
 .fan img:nth-child(2){--r:-13deg;--x:-56px}
@@ -206,8 +200,13 @@ a{color:inherit;text-decoration:none}
 .gift-term .ext b{font-family:"Jost",sans-serif;font-size:24px;font-weight:500;color:#fff}
 
 /* ---------- 03 お試し：対象商品 ---------- */
-.trial-items-h{margin-top:40px;display:flex;align-items:center;gap:12px;font-size:19px;font-weight:700;color:#fff}
-.trial-items-h::after{content:"";flex:1;height:1px;background:#ff4f9a66}
+.common{position:relative;margin-top:44px;padding:30px 16px 16px;border:2px solid var(--pink);border-radius:8px;background:#1a1019}
+.common::before{content:"";position:absolute;left:50%;top:-46px;width:2px;height:44px;margin-left:-1px;background:var(--pink)}
+.common-h{position:absolute;left:50%;top:0;transform:translate(-50%,-50%);display:flex;align-items:center;gap:8px;white-space:nowrap;background:var(--pink);color:#fff;padding:6px 18px;border-radius:999px;font-family:"Jost","Noto Sans JP",sans-serif;font-weight:600;font-size:17px;letter-spacing:.04em}
+.common-h i{font-style:normal;font-weight:400;opacity:.8}
+.common-t{text-align:center;font-size:21px;font-weight:700;line-height:1.5}
+.common-t b{font-size:1.9em;font-weight:600;color:var(--pink);margin:0 2px;line-height:1}
+.common .items{margin-top:16px}
 .items{margin-top:16px;display:grid;grid-template-columns:1fr 1fr;gap:14px}
 .item{display:flex;flex-direction:column;background:#fff;color:var(--ink);border-radius:6px;overflow:hidden;transition:transform .25s var(--ease)}
 .item:hover{transform:translateY(-3px)}
@@ -320,9 +319,8 @@ a{color:inherit;text-decoration:none}
   .h2{font-size:27px}
   .lead{font-size:16px}
   .sec{padding:60px var(--pad) 64px}
-  .stage{height:360px}
-  .body-neon{width:250px;margin-left:-125px}
-  .fan img{width:58px;margin-left:-29px;bottom:-78px}
+  .stage{height:220px}
+    .fan img{width:58px;margin-left:-29px;bottom:-78px}
   .fan img:nth-child(1){--x:-100px}.fan img:nth-child(2){--x:-50px}.fan img:nth-child(4){--x:50px}.fan img:nth-child(5){--x:100px}
   .ticket{padding:22px 18px 20px}
   .ticket .stamp{width:84px;height:84px;font-size:14px;top:16px;right:14px}
@@ -336,13 +334,15 @@ a{color:inherit;text-decoration:none}
   .item .bd{padding:10px 10px 12px}
   .item .nm{font-size:14.5px}
   .item .pr small{font-size:13px}
+  .item .pr{font-size:min(8.4vw,34px)}
+  .common{padding:30px 10px 12px}
   .flv-row{grid-template-columns:72px 1fr;padding:20px 14px 16px 10px;gap:0 12px}
   .flv-row h3{font-size:22px}
   .opt .nm{font-size:15px}
   .entry .x b{font-size:64px}
 }
 @media (prefers-reduced-motion:reduce){
-  .marq-in,.fan img,.neon-sign,.neon-sign .flk,.body-neon{animation:none}
+  .marq-in,.fan img,.neon-sign,.neon-sign .flk{animation:none}
   .gbox .lid,.gbox .pk{transition:none}
   .js .rv{opacity:1;transform:none;transition:none}
 }
@@ -400,27 +400,6 @@ a{color:inherit;text-decoration:none}
     <p class="fv-ja">酵素ドリンク<b> 優光泉</b></p>
 
     <div class="stage" aria-hidden="true">
-      <svg class="body-neon" viewBox="0 0 300 340" xmlns="http://www.w3.org/2000/svg">
-        <defs>
-          <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
-            <feGaussianBlur stdDeviation="5" result="b1"/>
-            <feGaussianBlur in="SourceGraphic" stdDeviation="12" result="b2"/>
-            <feMerge><feMergeNode in="b2"/><feMergeNode in="b1"/><feMergeNode in="SourceGraphic"/></feMerge>
-          </filter>
-        </defs>
-        <g filter="url(#glow)">
-          <!-- くびれのシルエット -->
-          <path class="tube" d="M112 8 C104 52 74 78 80 128 C85 168 114 182 114 206 C114 238 74 262 68 336"/>
-          <path class="tube" d="M188 8 C196 52 226 78 220 128 C215 168 186 182 186 206 C186 238 226 262 232 336"/>
-          <!-- メジャー -->
-          <path class="tape" d="M114 200 C130 214 170 214 186 200" />
-          <path class="tape" d="M186 200 C176 190 124 190 114 200" stroke-dasharray="4 7" opacity=".7"/>
-          <path class="tape" d="M186 202 C204 214 214 236 236 244"/>
-          <line class="tick" x1="200" y1="212" x2="196" y2="219"/><line class="tick" x1="212" y1="224" x2="207" y2="230"/><line class="tick" x1="224" y1="236" x2="220" y2="242"/>
-        </g>
-        <path class="core" d="M112 8 C104 52 74 78 80 128 C85 168 114 182 114 206 C114 238 74 262 68 336"/>
-        <path class="core" d="M188 8 C196 52 226 78 220 128 C215 168 186 182 186 206 C186 238 226 262 232 336"/>
-      </svg>
       <div class="fan">
         <img src="images/pk-wak.webp" alt="" style="--i:4">
         <img src="images/pk-zak.webp" alt="" style="--i:2">
@@ -518,7 +497,9 @@ a{color:inherit;text-decoration:none}
       <span class="get">1箱無料クーポンを獲得する</span>
     </a>
 
-    <p class="trial-items-h rv">クーポン対象のお試し商品</p>
+    <div class="common rv">
+      <p class="common-h"><span>20%OFF</span><i>&amp;</i><span>1箱無料</span></p>
+      <p class="common-t">どちらのクーポンも<br>対象はこの<b class="num">4</b>商品です</p>
     <div class="items">
       <a class="item rv" href="https://item.rakuten.co.jp/danjiki-dojo/0002/" target="_blank" rel="noopener">
         <img src="images/it-0002.jpg" alt="ポケット優光泉 スタンダード 15包" width="640" height="640" loading="lazy">
@@ -544,6 +525,7 @@ a{color:inherit;text-decoration:none}
           <span class="tags"><em>20%OFF</em><em>3箱で1箱無料</em></span>
           <span class="pr">2,916<small>円</small><i>税込</i></span></span>
       </a>
+    </div>
     </div>
     <p class="note">※表示価格は税込の通常価格です。クーポンはご注文時に適用されます。</p>
   </section>
