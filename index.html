@@ -74,7 +74,10 @@ a{color:inherit;text-decoration:none}
 /* くびれのネオン＋パウチ */
 .stage{position:relative;height:470px;margin:22px auto 0;max-width:480px}
 .floor{position:absolute;left:50%;bottom:-6px;width:360px;height:80px;margin-left:-180px;border-radius:50%;background:radial-gradient(closest-side,#ff4f9a59,transparent)}
-.bt{position:absolute;bottom:14px;width:106px;filter:drop-shadow(0 16px 24px #000d);z-index:2}
+.bt{position:absolute;bottom:14px;width:106px;filter:drop-shadow(0 0 2px #ffe3ef99) drop-shadow(0 0 14px #ff6fb299);z-index:2}
+.halo{position:absolute;left:50%;bottom:30px;width:330px;height:420px;margin-left:-165px;border-radius:50%;z-index:1;pointer-events:none;
+  background:radial-gradient(closest-side,#fff0f6 0%,#ffb3d4 30%,#ff5fa6b3 58%,#ff3d8b40 80%,transparent 100%);filter:blur(22px);opacity:.95;animation:haloPulse 5s ease-in-out 2s infinite}
+@keyframes haloPulse{0%,100%{opacity:.85;transform:scale(1)}50%{opacity:1;transform:scale(1.05)}}
 .bt.std{left:calc(50% - 114px);animation:btIn 1s var(--spring) .9s both,floatY 5s ease-in-out 2s infinite}
 .bt.ume{left:calc(50% + 8px);bottom:34px;animation:btIn 1s var(--spring) 1.05s both,floatY 5.6s ease-in-out 2.4s infinite}
 @keyframes btIn{from{opacity:0;transform:translateY(90px)}to{opacity:1;transform:none}}
@@ -149,7 +152,8 @@ a{color:inherit;text-decoration:none}
 .dash-until .w{font-size:18px;font-weight:700;color:var(--pink-l)}
 .dash-until .t{font-family:"Jost",sans-serif;font-size:min(7vw,34px);font-weight:500}
 .dash-until .m{font-size:20px;font-weight:700}
-.dash-sub{margin-top:12px;font-size:17px;font-weight:700;color:var(--sub);text-align:center}
+.dash-sub{margin-top:14px;font-size:28px;font-weight:900;color:#fff;text-align:center;line-height:1.4;letter-spacing:.06em}
+.dash-sub b{font-family:"Jost",sans-serif;font-weight:600;font-size:1.3em;color:var(--pink);margin:0 2px}
 .amp{display:flex;align-items:center;gap:14px;margin:30px 0 0;color:var(--pink);font-family:"Jost",sans-serif;font-size:34px;font-weight:400}
 .amp::before,.amp::after{content:"";flex:1;height:1px;background:#ff4f9a66}
 .point{margin-top:12px;display:flex;align-items:center;justify-content:center;gap:16px}
@@ -320,6 +324,7 @@ a{color:inherit;text-decoration:none}
   .sec{padding:60px var(--pad) 64px}
   .stage{height:390px}
   .floor{width:280px;margin-left:-140px}
+  .halo{width:270px;height:360px;margin-left:-135px;bottom:20px}
   .bt{width:86px}
   .bt.std{left:calc(50% - 92px)}
   .bt.ume{left:calc(50% + 6px)}
@@ -333,6 +338,7 @@ a{color:inherit;text-decoration:none}
   .ticket .stamp b{font-size:23px}
   .ticket .tag2{top:18px;right:14px;font-size:13px}
   .ticket .what{font-size:21px}
+  .dash-sub{font-size:22px}
   .ticket .get{font-size:17px;padding:16px 12px}
   .point .l{font-size:24px}
   .point .r span{font-size:34px}
@@ -352,7 +358,7 @@ a{color:inherit;text-decoration:none}
   .entry .x b{font-size:64px}
 }
 @media (prefers-reduced-motion:reduce){
-  .bt.std,.bt.ume,.pf,.neon-sign,.neon-sign .flk{animation:none}
+  .bt.std,.bt.ume,.pf,.halo,.neon-sign,.neon-sign .flk{animation:none}
   .gbox .lid,.gbox .pk{transition:none}
   .js .rv{opacity:1;transform:none;transition:none}
 }
@@ -411,6 +417,7 @@ a{color:inherit;text-decoration:none}
 
     <div class="stage" aria-hidden="true">
       <span class="floor"></span>
+      <span class="halo"></span>
       <img class="pf" src="images/pk-mik.webp" alt="" style="left:6%;top:6%;--r:-18deg;--t:6.2s;--dl:1.3s">
       <img class="pf" src="images/pk-zak.webp" alt="" style="left:15%;top:52%;--r:12deg;--t:7s;--dl:1.5s">
       <img class="pf" src="images/pk-wak.webp" alt="" style="right:9%;top:2%;--r:16deg;--t:6.6s;--dl:1.4s">
@@ -439,7 +446,7 @@ a{color:inherit;text-decoration:none}
     <div class="dash-head rv">
       <p class="dash-tag">スタートダッシュ</p>
       <p class="dash-until"><span class="n pink-t">11.20</span><span class="w">（金）</span><span class="t">23:59</span><span class="m">まで</span></p>
-      <p class="dash-sub">先着200名様・なくなり次第終了</p>
+      <p class="dash-sub"><span class="ib">先着<b>200</b>名様・</span><span class="ib">なくなり次第終了</span></p>
     </div>
 
     <a class="ticket rv" data-expire="2026-11-20T23:59:59+09:00" href="https://coupon.rakuten.co.jp/getCoupon?getkey=QjBRWS0ySVNTLUhEOEotWEpUSg--&amp;rt=&amp;rd=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2F%25E9%2585%25B5%25E7%25B4%25A0%25E3%2583%2589%25E3%2583%25AA%25E3%2583%25B3%25E3%2582%25AF%2F%3Fnitem%3D%25E3%2583%259D%25E3%2583%2583%25E3%2582%25AD%25E3%2583%25AA%26sid%3D235929" target="_blank" rel="noopener">
