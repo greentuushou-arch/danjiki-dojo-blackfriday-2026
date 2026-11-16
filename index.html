@@ -479,6 +479,15 @@ a{color:inherit;text-decoration:none}
   .opt .nm{font-size:15px}
   .entry .x b{font-size:64px}
 }
+/* ---------- スマホ固定ボタン ---------- */
+.fix-present{display:none}
+@media (max-width:600px){
+  .fix-present{display:block;position:fixed;left:0;right:0;bottom:0;z-index:80;padding:10px 14px calc(10px + env(safe-area-inset-bottom));background:linear-gradient(transparent,#0c0a0dcc 30%);transition:transform .35s var(--ease)}
+  .fix-present span{display:flex;flex-direction:column;align-items:center;line-height:1.15;padding:10px 12px 11px;border-radius:999px;background:var(--g-pink);color:var(--ink);font-family:"Jost","Noto Sans JP",sans-serif;font-weight:600;font-size:19px;letter-spacing:.08em;box-shadow:0 4px 0 var(--pink-d),0 8px 24px #0008}
+  .fix-present small{font-family:"Noto Sans JP",sans-serif;font-size:11.5px;font-weight:900;letter-spacing:.06em}
+  .fix-present.off{transform:translateY(120%)}
+  body{padding-bottom:84px}
+}
 @media (prefers-reduced-motion:reduce){
   .halo,.neon-sign,.neon-sign .flk,.mt,.cf{animation:none}
   .tw{animation:none;opacity:.8}
@@ -873,6 +882,7 @@ a{color:inherit;text-decoration:none}
   </footer>
 </div>
 
+<a class="fix-present" href="#gift" data-fix-present><span><small>2,000円以上で2包もらえる</small>PRESENT CAMPAIGN</span></a>
 <script>
 (function(){
   var b=document.body; b.classList.remove('no-js'); b.classList.add('js');
@@ -915,6 +925,12 @@ a{color:inherit;text-decoration:none}
   });
   document.querySelector('[data-best-close]').addEventListener('click',function(){if(dlg.close)dlg.close();else dlg.removeAttribute('open');});
   dlg.addEventListener('click',function(e){if(e.target===dlg&&dlg.close)dlg.close();});
+
+  /* スマホ固定ボタン：プレゼント枠が見えている間は隠す */
+  var fixBtn=document.querySelector('[data-fix-present]'), giftSec=document.getElementById('gift');
+  if(fixBtn&&giftSec&&'IntersectionObserver' in window){
+    new IntersectionObserver(function(es){es.forEach(function(e){fixBtn.classList.toggle('off',e.isIntersecting);});},{threshold:.15}).observe(giftSec);
+  }
   /* カウントダウン（開始前→開催中→プレゼント延長→終了） */
   var START=new Date('2026-11-19T20:00:00+09:00').getTime();
   var END=new Date('2026-11-25T01:59:59+09:00').getTime();
