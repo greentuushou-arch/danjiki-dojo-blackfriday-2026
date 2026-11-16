@@ -120,27 +120,27 @@ a{color:inherit;text-decoration:none}
 .pink .note,.pale .note{color:#6a5560}
 
 /* ---------- チケット型クーポン ---------- */
-.ticket{position:relative;margin-top:28px;display:block;border:2px solid var(--pink);background:#120c12;padding:24px 24px 22px;text-align:left;border-radius:6px}
+.ticket{position:relative;margin-top:28px;display:block;border:2px solid var(--pink);background:#120c12;padding:20px 22px 16px;text-align:left;border-radius:6px}
 .ticket::before,.ticket::after{content:"";position:absolute;top:50%;width:24px;height:24px;margin-top:-12px;border-radius:50%;background:var(--ink);border:2px solid var(--pink)}
 .ticket::before{left:-14px;clip-path:inset(0 0 0 50%)}
 .ticket::after{right:-14px;clip-path:inset(0 50% 0 0)}
 .ticket .what{padding-right:96px;font-size:17px;font-weight:700;letter-spacing:.1em;color:var(--pink-l)}
-.ticket .big{display:flex;align-items:flex-end;gap:8px;margin-top:4px;line-height:.82}
-.ticket .pct{font-family:"Jost",sans-serif;font-weight:600;font-size:min(34vw,170px);letter-spacing:-.02em}
-.ticket .off{font-family:"Jost",sans-serif;font-weight:600;font-size:min(11vw,52px);line-height:.9;padding-bottom:10px}
+.ticket .big{display:flex;align-items:flex-end;justify-content:center;gap:10px;margin-top:6px;line-height:.8}
+.ticket .pct{font-family:"Jost",sans-serif;font-weight:600;font-size:min(38vw,232px);letter-spacing:-.03em}
+.ticket .off{font-family:"Jost",sans-serif;font-weight:600;font-size:min(12.5vw,76px);line-height:.88;padding-bottom:12px}
 .ticket .off small{display:block;font-size:.42em;letter-spacing:.34em;color:var(--pink-l);font-weight:500;margin-top:6px}
 .ticket .stamp{position:absolute;top:20px;right:20px;width:96px;height:96px;border-radius:50%;background:#fff;color:var(--red);display:flex;flex-direction:column;align-items:center;justify-content:center;line-height:1.15;font-weight:900;font-size:15px;letter-spacing:.06em;text-align:center}
 .ticket .stamp b{font-family:"Jost",sans-serif;font-size:32px;font-weight:600;letter-spacing:0}
 .ticket .tag2{position:absolute;top:22px;right:20px;padding:4px 12px;border:1px solid var(--pink);font-size:14px;font-weight:700;color:var(--pink-l);letter-spacing:.1em;border-radius:999px}
-.ticket .get{display:flex;align-items:center;justify-content:space-between;margin-top:20px;padding-top:16px;border-top:1px dashed #ff4f9a88;font-size:17px;font-weight:700;color:var(--pink-l)}
+.ticket .get{display:flex;align-items:center;justify-content:space-between;margin-top:14px;padding-top:12px;border-top:1px dashed #ff4f9a88;font-size:17px;font-weight:700;color:var(--pink-l)}
 .ticket .get::after{content:"";width:8px;height:8px;border-top:2px solid currentColor;border-right:2px solid currentColor;transform:rotate(45deg)}
 .ticket:hover .get{color:#fff}
 .ticket.is-over{opacity:.45;pointer-events:none}
 .ticket.is-over .get{font-size:0}
 .ticket.is-over .get::before{content:"このクーポンの配布は終了しました";font-size:15px}
-.ticket.free .big{align-items:center}
+.ticket.free .big{align-items:center;margin-top:10px}
 .ticket.free .what{padding-right:0;margin-top:34px}
-.ticket.free .free-t{font-size:min(17vw,84px);font-weight:900;line-height:1;letter-spacing:.02em}
+.ticket.free .free-t{font-size:min(19vw,112px);font-weight:900;line-height:1;letter-spacing:.02em}
 .ticket.free .free-t .num{font-size:1.3em;font-weight:600}
 .ticket.free .what b{font-family:"Jost",sans-serif;font-size:24px;font-weight:600;color:#fff}
 
@@ -322,9 +322,12 @@ a{color:inherit;text-decoration:none}
   .stage{height:220px}
     .fan img{width:58px;margin-left:-29px;bottom:-78px}
   .fan img:nth-child(1){--x:-100px}.fan img:nth-child(2){--x:-50px}.fan img:nth-child(4){--x:50px}.fan img:nth-child(5){--x:100px}
-  .ticket{padding:22px 18px 20px}
-  .ticket .stamp{width:84px;height:84px;font-size:14px;top:16px;right:14px}
-  .ticket .stamp b{font-size:28px}
+  .ticket{padding:18px 14px 14px}
+  .ticket .big{gap:6px}
+  .ticket .pct{font-size:36vw}
+  .ticket .off{font-size:11.2vw}
+  .ticket .stamp{width:76px;height:76px;font-size:13px;top:14px;right:12px}
+  .ticket .stamp b{font-size:25px}
   .ticket .tag2{top:18px;right:14px;font-size:13px}
   .point .l{font-size:24px}
   .point .r span{font-size:34px}
