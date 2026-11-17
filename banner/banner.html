@@ -5,7 +5,7 @@
 <title>断食道場SHOP BF 誘導バナー</title>
 <link href="https://fonts.googleapis.com/css2?family=Jost:wght@500;600&family=Noto+Sans+JP:wght@700;900&family=Tilt+Neon&display=swap" rel="stylesheet">
 <style>
-/* 使い方: banner.html?s=900 / ?s=311 → sh export.sh で 1600x900・1600x311 を書き出し */
+/* 使い方: banner.html?s=900 / ?s=311（&c=10 で10%OFF版） → sh export.sh で 1600x900・1600x311 を書き出し */
 :root{--ink:#0c0a0d;--pink:#ff4f9a;--pink-d:#c21862;--pink-l:#ffb8d7;--cream:#fff5cf;--red:#e3122d;
   --g-pink:linear-gradient(100deg,#ff3d8b 0%,#ff8cc1 35%,#ffd2e6 50%,#ff7ab6 66%,#ff3d8b 100%)}
 *{margin:0;padding:0;box-sizing:border-box}
@@ -179,6 +179,12 @@ body{font-family:"Noto Sans JP",sans-serif;color:#fff;letter-spacing:.04em}
 var s=document.body.className.slice(1);
 document.querySelectorAll('[data-only]').forEach(function(e){if(e.getAttribute('data-only')!==s)e.remove();});
 document.querySelector('.neon').innerHTML = s==='311' ? 'BLACK FRIDAY' : 'BLACK<br>FRIDAY';
+/* ?c=10 で10%OFF版（先着15%終了後の差し替え用） */
+if(/c=10/.test(location.search)){
+  document.querySelectorAll('.cp .n').forEach(function(e){e.textContent='10';});
+  document.querySelectorAll('.stamp').forEach(function(e){e.remove();});
+  var l=document.querySelector('.later'); if(l) l.textContent='11/25（水）1:59までの期間限定クーポン';
+}
 </script>
 </body>
 </html>
