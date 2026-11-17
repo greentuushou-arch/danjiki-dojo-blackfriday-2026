@@ -10,3 +10,7 @@ for c in 15 10; do
     python -c "from PIL import Image;Image.open(r'$D/banner-1600x$s$suf.png').convert('RGB').save(r'$D/banner-1600x$s$suf.jpg',quality=92)"
   done
 done
+# プレゼントキャンペーン専用（1600x900）
+"$C" --headless=new --disable-gpu --hide-scrollbars --force-device-scale-factor=1 --virtual-time-budget=5000 \
+  --window-size=1600,900 --screenshot="$D/present-1600x900.png" "file:///$D/present.html" 2>/dev/null
+python -c "from PIL import Image;Image.open(r'$D/present-1600x900.png').convert('RGB').save(r'$D/present-1600x900.jpg',quality=92)"

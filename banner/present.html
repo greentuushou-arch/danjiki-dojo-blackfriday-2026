@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>断食道場SHOP 2包プレゼント 誘導バナー</title>
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@500;600&family=Noto+Sans+JP:wght@700;900&display=swap" rel="stylesheet">
+<style>
+/* 1600x900 プレゼントキャンペーン専用バナー → sh export.sh で present-1600x900 を書き出し */
+:root{--ink:#0c0a0d;--pink:#ff4f9a;--pink-d:#c21862;--cream:#fff5cf;--mik:#EF9A12;--zak:#8C1B37}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:1600px;height:900px;overflow:hidden;background:var(--cream)}
+body{font-family:"Noto Sans JP",sans-serif;color:var(--ink);letter-spacing:.04em}
+.bn{position:relative;width:1600px;height:900px;overflow:hidden;
+  background:radial-gradient(ellipse 36% 52% at 27% 62%,#fff 0%,#fffbe8 40%,transparent 75%),var(--cream)}
+.cf{position:absolute;display:block;background:var(--c);transform:rotate(var(--r))}
+.cf.sq{width:22px;height:22px;border-radius:4px}.cf.dot{width:22px;height:22px;border-radius:50%}.cf.bar{width:11px;height:34px;border-radius:6px}
+.logo{position:absolute;left:44px;top:38px;background:#fff;border-radius:10px;padding:10px 16px;box-shadow:0 4px 14px #c2186222;z-index:3}
+.logo img{display:block;height:38px}
+/* リボン見出し */
+.camp{position:absolute;left:0;right:0;top:52px;text-align:center;z-index:2}
+.camp span{display:inline-block;padding:20px 90px 22px;background:var(--pink);color:#fff;font-family:"Jost",sans-serif;font-weight:600;font-size:66px;letter-spacing:.1em;line-height:1;
+  clip-path:polygon(0 0,100% 0,calc(100% - 36px) 50%,100% 100%,0 100%,36px 50%)}
+.camp-ja{position:absolute;left:0;right:0;top:170px;text-align:center;font-size:26px;font-weight:900;letter-spacing:.34em;color:var(--pink-d);z-index:2}
+/* ギフト箱 */
+.stage{position:absolute;left:70px;bottom:40px;width:620px;height:600px}
+.burst i{position:absolute;left:310px;bottom:300px;width:14px;height:60px;margin-left:-7px;border-radius:7px;background:#ffc21a;transform-origin:50% 100%;transform:rotate(var(--a)) translateY(-210px)}
+.burst i:nth-child(even){background:var(--pink)}
+.gbox{position:absolute;left:110px;bottom:0;width:400px;height:520px}
+.gbox .front{position:absolute;left:0;right:0;bottom:0;height:240px;background:radial-gradient(circle,#ffffffaa 0 6px,transparent 6.5px) 0 0/40px 40px,#ff6fa8;z-index:3;border-radius:6px}
+.gbox .front::before{content:"";position:absolute;left:50%;top:0;bottom:0;width:52px;margin-left:-26px;background:#fff}
+.gbox .lid{position:absolute;left:-18px;right:-18px;bottom:240px;height:66px;background:radial-gradient(circle,#ffffff88 0 6px,transparent 6.5px) 0 0/40px 40px,var(--pink);transform-origin:100% 100%;transform:rotate(18deg);z-index:1;border-radius:6px}
+.gbox .lid::before{content:"";position:absolute;left:50%;top:0;bottom:0;width:52px;margin-left:-26px;background:#fff}
+.gbox .bow{position:absolute;left:50%;bottom:100%;width:150px;height:66px;margin-left:-75px}
+.gbox .bow::before,.gbox .bow::after{content:"";position:absolute;bottom:0;width:74px;height:50px;border:9px solid #fff;border-radius:50%/60% 60% 40% 40%;box-shadow:0 3px 0 #e8327c}
+.gbox .bow::before{left:0;transform:rotate(-14deg)}.gbox .bow::after{right:0;transform:rotate(14deg)}
+.gbox .pk{position:absolute;bottom:70px;width:122px;z-index:2;filter:drop-shadow(0 10px 16px #0003)}
+.gbox .pk.mik{left:58px;transform:rotate(-9deg)}
+.gbox .pk.zak{right:58px;transform:rotate(9deg)}
+/* コピー */
+.copy{position:absolute;left:680px;right:40px;top:230px;bottom:40px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center}
+.cond{font-size:52px;font-weight:900;line-height:1.25;white-space:nowrap}
+.cond .k{font-size:44px}
+.cond .num{font-family:"Jost",sans-serif;font-weight:600;font-size:96px;color:var(--pink-d);letter-spacing:-.01em;margin:0 4px}
+.note{margin-top:8px;font-size:24px;font-weight:700;color:#6a5560}
+.big{margin-top:18px;display:flex;align-items:baseline;justify-content:center;white-space:nowrap;line-height:1}
+.big .k{font-size:56px;font-weight:900}
+.big .n{font-family:"Jost",sans-serif;font-weight:600;font-size:220px;color:var(--pink-d);line-height:.8;margin:0 4px}
+.big .u{font-size:70px;font-weight:900;color:var(--pink-d)}
+.big .p{font-size:56px;font-weight:900}
+.names{margin-top:24px;display:flex;gap:20px}
+.names div{display:flex;align-items:center;gap:12px;padding:12px 30px;background:#fff;border:3px dashed #ffb8d7;border-radius:999px;font-size:34px;font-weight:900;white-space:nowrap}
+.names i{width:22px;height:22px;border-radius:50%}
+.names small{font-size:22px;color:#6a5560}
+.term{margin-top:28px;width:100%;padding:16px 20px 18px;border-radius:22px;background:var(--pink);color:#fff;white-space:nowrap}
+.term .l{font-size:22px;font-weight:900;letter-spacing:.14em}
+.term .v{font-size:30px;font-weight:900;line-height:1.3}
+.term .v b{font-family:"Jost",sans-serif;font-weight:500;font-size:46px}
+</style>
+</head>
+<body>
+<div class="bn">
+  <i class="cf sq" style="left:3%;top:30%;--c:#ffd23f;--r:20deg"></i>
+  <i class="cf dot" style="left:10%;top:12%;--c:#7fd6c2"></i>
+  <i class="cf bar" style="left:22%;top:24%;--c:#ff4f9a;--r:-30deg"></i>
+  <i class="cf sq" style="left:40%;top:30%;--c:#c9a7ff;--r:40deg"></i>
+  <i class="cf dot" style="left:2%;top:80%;--c:#ff8a3d"></i>
+  <i class="cf bar" style="left:42%;top:82%;--c:#ffd23f;--r:24deg"></i>
+  <i class="cf dot" style="left:85%;top:6%;--c:#ffb8d7"></i>
+  <i class="cf sq" style="left:95%;top:22%;--c:#ff4f9a;--r:12deg"></i>
+  <i class="cf bar" style="left:96%;top:60%;--c:#7fd6c2;--r:-20deg"></i>
+  <i class="cf dot" style="left:46%;top:94%;--c:#c9a7ff"></i>
+  <i class="cf sq" style="left:13%;top:93%;--c:#ffd23f;--r:30deg"></i>
+  <i class="cf bar" style="left:6%;top:50%;--c:#ff8a3d;--r:60deg"></i>
+
+  <a class="logo"><img src="../images/logo-wide.jpg" alt=""></a>
+  <p class="camp"><span>PRESENT CAMPAIGN</span></p>
+  <p class="camp-ja">プレゼントキャンペーン</p>
+
+  <div class="stage">
+    <span class="burst"><i style="--a:-70deg"></i><i style="--a:-48deg"></i><i style="--a:-26deg"></i><i style="--a:-6deg"></i><i style="--a:14deg"></i><i style="--a:34deg"></i><i style="--a:54deg"></i><i style="--a:74deg"></i></span>
+    <div class="gbox">
+      <img class="pk mik" src="../images/pk-mik.png" alt="">
+      <img class="pk zak" src="../images/pk-zak.png" alt="">
+      <div class="lid"><span class="bow"></span></div>
+      <div class="front"></div>
+    </div>
+  </div>
+
+  <div class="copy">
+    <p class="cond"><span class="k">期間中</span><span class="num">2,000</span>円以上ご購入で</p>
+    <p class="note">※継続定期購入分は対象外です</p>
+    <p class="big"><span class="k">酵素ドリンク</span><span class="n">2</span><span class="u">包</span><span class="p">プレゼント</span></p>
+    <div class="names">
+      <div><i style="background:var(--mik)"></i>ミカン<small>1包</small></div>
+      <div><i style="background:var(--zak)"></i>ザクローズ<small>1包</small></div>
+    </div>
+    <div class="term">
+      <p class="l">プレゼント対象期間</p>
+      <p class="v"><b>11.19</b>（木）20:00 〜 <b>11.25</b>（水）23:59</p>
+    </div>
+  </div>
+</div>
+</body>
+</html>
